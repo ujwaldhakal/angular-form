@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngIf="!submitted">
+    <h1>Basic Template Driven Form</h1>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" name="email" ngModel #email="ngModel" required>
+        <div class="alert alert-danger" [hidden]="email.valid || name.pristine">email is required</div>
+      </div>
+      <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">name is required</div>
+      </div>
+         <div class="form-group">
+        <label for="Message">Message</label>
+        <input type="text" class="form-control" name="message" ngModel #message="ngModel" required>
+        <div class="alert alert-danger" [hidden]="message.valid || message.pristine">message is required</div>
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!heroForm.valid">Submit</button>
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    <h2>Your form has been submitted</h2>
+   
+  </div>
+</div>
